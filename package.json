@@ -1,0 +1,25 @@
+{
+  "name": "imtheo-new",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/meowpurrpur/imtheo.lol-new#readme",
+  "bugs": {
+    "url": "https://github.com/meowpurrpur/imtheo.lol-new/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meowpurrpur/imtheo.lol-new.git"
+  },
+  "license": "ISC",
+  "author": "meowpurrpur",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

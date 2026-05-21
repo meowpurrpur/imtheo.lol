@@ -1,0 +1,392 @@
+/* imports */
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+/* vars */
+
+:root {
+  --accent-color: #bc86ca;
+  --border-primary: #363636;
+  --border-active: #525252;
+
+  --background-color: #0e0e13;
+  --background-secondary: #1b1b24;
+
+  --text-primary: #cecece;
+  --text-inactive: #b3b3b3;
+}
+
+/* misc */
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  margin: 1.5rem;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* text */
+
+h1 {
+  font-weight: 700;
+}
+
+p {
+  color: var(--text-inactive);
+  font-size: 1.2rem;
+  font-weight: 500;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+
+  max-width: 600px;
+  width: 90%;
+}
+
+.accent {
+  color: var(--accent-color);
+  font-weight: 900;
+}
+
+.accent-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--accent-color) 0%,
+    #cf9ab9 25%,
+    var(--accent-color) 100%
+  );
+  background-size: 200% 100%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* navbar */
+
+.navbar {
+  background-color: #1b1b24;
+  padding: 0.8rem 2rem;
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+
+  border-style: solid;
+  border-color: var(--border-primary);
+  border-width: 1px;
+  border-radius: 3rem;
+}
+
+.navbar-link,
+.navbar-link-active {
+  color: var(--text-inactive);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.navbar-link-active {
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+/* links */
+
+.link-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+
+  max-width: 600px;
+}
+
+.link-button {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  text-decoration: none;
+  text-wrap: none;
+
+  padding: 0.65rem 1rem;
+  background: var(--background-secondary);
+
+  border-style: solid;
+  border-color: var(--border-primary);
+  border-width: 1px;
+  border-radius: 1.25rem;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.link-button:hover {
+  scale: 1.02;
+  border-color: var(--accent-color);
+}
+
+.link-text-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.link-text-lower {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.link-text-upper {
+  color: var(--text-inactive);
+  font-weight: 600;
+  font-size: 0.6rem;
+}
+
+.link-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+
+  color: var(--accent-color);
+}
+
+/* project card */
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+
+  max-width: 90vw;
+}
+
+.project-card {
+  width: 400px;
+  min-height: 100px;
+  max-width: 80vw;
+  padding: 0.65rem 1rem;
+
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  align-items: start;
+  text-decoration: none;
+  text-align: start;
+
+  background: var(--background-secondary);
+  border-style: solid;
+  border-color: var(--border-primary);
+  border-width: 1px;
+  border-radius: 1rem;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.project-card:hover {
+  scale: 1.01;
+  border-color: var(--accent-color);
+}
+
+.project-title {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.project-description {
+  flex: 1;
+
+  color: var(--text-inactive);
+  font-size: 0.9rem;
+
+  max-width: 95%;
+  width: 100%;
+  margin: 0;
+}
+
+.project-bottom-container {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 0.8rem;
+}
+
+.project-lang,
+.project-stars,
+.project-forks {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.project-lang {
+  color: #bc86ca;
+}
+
+.project-stars {
+  color: #efdf35;
+}
+
+.project-forks {
+  color: var(--text-primary);
+}
+
+.project-faicon {
+  margin-right: 0.4rem;
+}
+
+.project-icon {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+
+  color: var(--accent-color);
+  pointer-events: none;
+}
+
+/* discord card */
+
+.discord-card {
+  width: 300px;
+  height: 160px;
+  margin-bottom: 1rem;
+
+  position: relative;
+  text-align: left;
+
+  overflow: hidden;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 1rem;
+
+  text-decoration: none;
+  color: var(--text-primary);
+
+  transition: all 0.2s ease-in-out;
+}
+
+.discord-card:hover {
+  scale: 1.01;
+  border-color: var(--accent-color);
+}
+
+.discord-card-username {
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--text-inactive);
+}
+
+.discord-card-name {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.discord-card-banner {
+  width: 100%;
+  height: 80px;
+}
+
+.discord-card-avatar-wrapper {
+  position: absolute;
+  top: 35px;
+  left: 12px;
+
+  width: 64px;
+  height: 64px;
+}
+
+.discord-card-avatar,
+.discord-card-avatar-deco {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.discord-card-avatar {
+  border-radius: 50%;
+  border: 3px solid var(--background-secondary);
+  object-fit: cover;
+}
+
+.discord-card-avatar-deco {
+  inset: -7%;
+  width: 120%;
+  height: 120%;
+
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.discord-status {
+  position: absolute;
+  bottom: -5px;
+  right: -4px;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+  border: 3px solid var(--background-secondary);
+}
+
+.discord-status-online {
+  background: #3ba55d;
+}
+
+.discord-status-idle {
+  background: #faa61a;
+}
+
+.discord-status-dnd {
+  background: #ed4245;
+}
+
+.discord-status-offline {
+  background: #747f8d;
+}
+
+.discord-card-content {
+  margin-top: 25px;
+  padding-left: 16px;
+}
+
+.discord-card-icon {
+  position: absolute;
+  top: 5.5rem;
+  right: 0.8rem;
+
+  color: var(--text-inactive);
+  pointer-events: none;
+}
