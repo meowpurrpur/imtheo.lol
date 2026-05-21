@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ProjectCard from "../components/ProjectCard";
 import useTitle from "../hooks/Title";
+import Footer from "../components/Footer";
 
 function Projects() {
   const [projectState, setProjectState] = useState([]);
@@ -38,7 +39,7 @@ function Projects() {
   useTitle("imtheo.lol - projects");
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
 
       <div className="centered">
         <h1>Open source projects</h1>
@@ -63,6 +64,8 @@ function Projects() {
 
         <p>More coming soon...</p>
       </div>
+
+      <Footer />
     </>
   );
 }

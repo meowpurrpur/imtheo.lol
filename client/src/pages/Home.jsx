@@ -9,13 +9,14 @@ import LinkButton from "../components/LinkButton";
 import Navbar from "../components/Navbar";
 import useTitle from "../hooks/Title";
 import DiscordWidget from "../components/DiscordInfo";
+import Footer from "../components/Footer";
 
 function Home() {
   useTitle("imtheo.lol");
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
 
       <div className="centered">
         <h1 style={{ fontSize: "2.5rem", marginBottom: "0" }}>
@@ -81,6 +82,8 @@ function Home() {
           />
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }

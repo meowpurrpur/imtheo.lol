@@ -1,21 +1,22 @@
 import Navbar from "../components/Navbar";
 import useTitle from "../hooks/Title";
 import LinkButton from "../components/LinkButton";
+import Footer from "../components/Footer";
 
 function About() {
   useTitle("imtheo.lol - about");
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
 
       <div className="centered">
         <h1 style={{ marginBottom: 0 }}>About me</h1>
         <p>
           As you probably know, my name is Theo, though most people online know
-          me as <span className="accent-gradient">@meowpurrpur</span>. I've been into
-          programming, computers, and pretty much anything tech-related for as
-          long as I can remember. I also enjoy playing games and listening to
+          me as <span className="accent-gradient">@meowpurrpur</span>. I've been
+          into programming, computers, and pretty much anything tech-related for
+          as long as I can remember. I also enjoy playing games and listening to
           music!
         </p>
 
@@ -119,6 +120,8 @@ function About() {
           />
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }

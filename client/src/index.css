@@ -105,6 +105,13 @@ p {
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
+
+  transition: all ease-in-out 0.25s;
+}
+
+.navbar-link:hover,
+.navbar-link-active:hover {
+  color: var(--accent-color);
 }
 
 .navbar-link-active {
@@ -389,4 +396,30 @@ p {
 
   color: var(--text-inactive);
   pointer-events: none;
+}
+
+/* footer */
+
+.footer {
+  margin: 2rem auto;
+  width: fit-content;
+  text-align: center;
+}
+
+.footer-text {
+  text-decoration: none;
+  color: var(--text-inactive);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.footer-link {
+  color: var(--text-primary);
+  font-weight: 700;
+
+  transition: all ease-in-out 0.25s;
+}
+
+.footer-link:hover {
+  color: var(--accent-color);
 }
