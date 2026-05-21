@@ -23,8 +23,9 @@ app.set("trust proxy", true);
 app.use("/github", githubRouter);
 app.use("/discord", discordRouter);
 
-app.get(["/offsets", "/offsets/*"], (req, res) => {
-  const newPath = req.originalUrl.replace(/^\/offsets/, "");
+app.all(["/offsets", "/offsets/*"], (req, res) => {
+  const newPath = req.originalUrl.replace(/^\/offsets/i, "");
+
   res.redirect(308, `https://offsets.imtheo.lol${newPath}`);
 });
 
