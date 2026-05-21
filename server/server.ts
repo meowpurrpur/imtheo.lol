@@ -23,11 +23,14 @@ app.set("trust proxy", true);
 app.use("/github", githubRouter);
 app.use("/discord", discordRouter);
 
-app.all(/^\/offsets(\/.*)?$/i, (req, res) => {
-  const suffix = req.path.replace(/^\/offsets/i, "");
-  const targetPath = suffix || "/";
+app.all("/offsets*", (req, res) => {
+  const url = new URL(req.originalUrl, `https://${req.headers.host}`);
+  const suffix = url.pathname.toLowerCase().startsWith("/offsets")
+    ? url.pathname.slice(8)
+    : url.pathname;
 
-  res.redirect(308, `https://offsets.imtheo.lol${targetPath}`);
+  const targetPath = suffix || "/";
+  res.status(308).set("Location", `https://offsets.imtheo.lol${targetPath}`).end();
 });
 
 if (isDev) {
