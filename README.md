@@ -20,6 +20,10 @@ My personal portfolio website.
    cp .env.example .env
    ```
 3. Fill in your environment variables in the `.env` file
+4. Install dependencies
+   ```bash
+   cd client && npm i && cd ../server && npm i && cd ../
+   ```
 
 ### Development
 Start the development server with:
