@@ -20,7 +20,12 @@ type RepoOutput = {
   updatedAt: string;
 };
 
-const ALLOWED_REPOS = ["ConsoleRenderer", "IconsInWorld", "RobloxUpdateTracker"];
+const ALLOWED_REPOS = [
+  "imtheo.lol",
+  "ConsoleRenderer",
+  "IconsInWorld",
+  "RobloxUpdateTracker",
+];
 
 export async function getRepositories(): Promise<RepoOutput[]> {
   const username = process.env.GITHUB_USERNAME;
@@ -41,9 +46,10 @@ export async function getRepositories(): Promise<RepoOutput[]> {
   }
 
   const repos: GitHubRepo[] = await response.json();
+  const allowedSet = new Set(ALLOWED_REPOS);
 
   return repos
-    .filter((repo) => ALLOWED_REPOS.includes(repo.name))
+    .filter((repo) => allowedSet.has(repo.name))
     .map((repo) => ({
       id: repo.id,
       name: repo.name,
@@ -53,5 +59,8 @@ export async function getRepositories(): Promise<RepoOutput[]> {
       url: repo.html_url,
       language: repo.language,
       updatedAt: repo.updated_at,
-    }));
+    }))
+    .sort((a, b) => {
+      return ALLOWED_REPOS.indexOf(a.name) - ALLOWED_REPOS.indexOf(b.name);
+    });
 }
