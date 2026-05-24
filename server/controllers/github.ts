@@ -22,6 +22,7 @@ type RepoOutput = {
 
 const ALLOWED_REPOS = [
   "imtheo.lol",
+  "Joseph",
   "ConsoleRenderer",
   "IconsInWorld",
   "RobloxUpdateTracker",

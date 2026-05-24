@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import ProjectCard from "../components/ProjectCard";
 import useTitle from "../hooks/Title";
 import Footer from "../components/Footer";
+import { FaCircleNotch } from "react-icons/fa6";
 
 function Projects() {
   const [projectState, setProjectState] = useState([]);
@@ -46,7 +47,9 @@ function Projects() {
 
         <div className="project-container">
           {projectState.length === 0 ? (
-            <div>Loading...</div>
+            <div className="project-placeholder">
+              <FaCircleNotch className="spinner" size={20} />
+            </div>
           ) : (
             projectState.map((project) => (
               <ProjectCard
@@ -61,8 +64,6 @@ function Projects() {
             ))
           )}
         </div>
-
-        <p>More coming soon...</p>
       </div>
 
       <Footer />
