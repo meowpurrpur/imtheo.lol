@@ -22,7 +22,7 @@ My personal portfolio website.
 3. Fill in your environment variables in the `.env` file
 4. Install dependencies
    ```bash
-   cd client && npm i && cd ../server && npm i && cd ../
+   cd client && npm i && cd ../server && npm i && cd ../ && npm i
    ```
 
 ### Development
