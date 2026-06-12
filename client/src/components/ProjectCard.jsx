@@ -26,7 +26,6 @@ export default function ProjectCard({
 
       <div className="project-bottom-container">
         <span className="project-lang">
-          <span className="project-lang-dot" aria-hidden="true" />
           {primaryLanguage || "Various"}
         </span>
 

@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import ProjectCard from "../components/ProjectCard";
 import useTitle from "../hooks/Title";
 import Footer from "../components/Footer";
-import { FaCircleNotch } from "react-icons/fa6";
+import { FaCircleNotch, FaDiscord, FaGlobe } from "react-icons/fa6";
 
 function Projects() {
   const [projectState, setProjectState] = useState([]);
@@ -64,6 +64,42 @@ function Projects() {
             ))
           )}
         </div>
+
+        <section className="closed-source-projects">
+          <h2>Closed-source projects</h2>
+
+          <div className="project-container">
+            <article className="project-card private-project-card">
+              <h3 className="project-title">theo's offsets</h3>
+              <p className="project-description">
+                A website providing accurate and always updated offsets for
+                Roblox externals.
+              </p>
+
+              <div className="project-bottom-container project-links">
+                <a
+                  className="project-link"
+                  href="https://offsets.imtheo.lol"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaGlobe size={13} />
+                  Website
+                </a>
+
+                <a
+                  className="project-link"
+                  href="https://discord.gg/rbxoffsets"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaDiscord size={14} />
+                  Discord
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
 
       <Footer />

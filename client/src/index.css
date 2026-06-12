@@ -11,6 +11,7 @@
 
   --background-color: #0e0e13;
   --background-secondary: #1b1b24;
+  --hover-color: #20202a;
 
   --text-primary: #cecece;
   --text-inactive: #b3b3b3;
@@ -133,7 +134,7 @@ p {
 
 .navbar-link-active {
   color: var(--text-primary);
-  background-color: #252531;
+  background-color: var(--hover-color);
 }
 
 /* links */
@@ -166,12 +167,14 @@ p {
   border-width: 1px;
   border-radius: 1.25rem;
 
-  transition: all 0.2s ease-in-out;
+  transition:
+    border-color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 }
 
 .link-button:hover {
-  scale: 1.02;
-  border-color: var(--accent-color);
+  border-color: var(--border-active);
+  background-color: var(--hover-color);
 }
 
 .link-text-container {
@@ -224,7 +227,7 @@ p {
   width: 400px;
   min-height: 100px;
   max-width: 80vw;
-  padding: 1.15rem;
+  padding: 1rem;
 
   position: relative;
   display: flex;
@@ -239,15 +242,13 @@ p {
   border-radius: 1.15rem;
 
   transition:
-    transform 0.2s ease-in-out,
     border-color 0.2s ease-in-out,
     background-color 0.2s ease-in-out;
 }
 
 .project-card:hover {
-  transform: translateY(-2px);
   border-color: var(--border-active);
-  background-color: #20202a;
+  background-color: var(--hover-color);
 }
 
 .project-title {
@@ -285,20 +286,12 @@ p {
 .project-forks {
   display: inline-flex;
   align-items: center;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 700;
 }
 
 .project-lang {
   color: var(--text-inactive);
-}
-
-.project-lang-dot {
-  width: 6px;
-  height: 6px;
-  margin-right: 0.4rem;
-  border-radius: 50%;
-  background-color: var(--accent-color);
 }
 
 .project-stars {
@@ -327,6 +320,56 @@ p {
   color: var(--accent-color);
 }
 
+.closed-source-projects {
+  width: 100%;
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.closed-source-projects h2 {
+  margin: 0 0 1rem;
+}
+
+.closed-source-projects .project-container {
+  margin-inline: auto;
+  justify-content: center;
+}
+
+.private-project-card:hover .project-icon {
+  color: var(--text-inactive);
+}
+
+.project-links {
+  gap: 0.6rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.65rem;
+
+  color: var(--text-inactive);
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.6rem;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+}
+
+.project-link:hover {
+  color: var(--text-primary);
+  border-color: var(--border-active);
+  background-color: var(--hover-color);
+}
+
 /* discord card */
 
 .discord-card {
@@ -345,12 +388,14 @@ p {
   text-decoration: none;
   color: var(--text-primary);
 
-  transition: all 0.2s ease-in-out;
+  transition:
+    border-color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 }
 
 .discord-card:hover {
-  scale: 1.01;
-  border-color: var(--accent-color);
+  border-color: var(--border-active);
+  background-color: var(--hover-color);
 }
 
 .discord-card-username {
@@ -463,7 +508,7 @@ p {
   color: var(--text-primary);
   font-weight: 700;
 
-  transition: all ease-in-out 0.25s;
+  transition: color 0.2s ease-in-out;
 }
 
 .footer-link:hover {
