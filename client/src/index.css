@@ -87,36 +87,53 @@ p {
 /* navbar */
 
 .navbar {
-  background-color: #1b1b24;
-  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  background-color: var(--background-secondary);
+  padding: 0.65rem 0.8rem 0.65rem 1.1rem;
   width: fit-content;
   margin: auto;
-  text-align: center;
 
-  border-style: solid;
-  border-color: var(--border-primary);
-  border-width: 1px;
-  border-radius: 3rem;
+  border: 1px solid var(--border-primary);
+  border-radius: 1.15rem;
 }
 
-.navbar-link,
-.navbar-link-active {
+.navbar-brand {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navbar-link {
   color: var(--text-inactive);
   text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.6rem;
 
-  transition: all ease-in-out 0.25s;
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 }
 
-.navbar-link:hover,
-.navbar-link-active:hover {
-  color: var(--accent-color);
+.navbar-link:hover {
+  color: var(--text-primary);
 }
 
 .navbar-link-active {
   color: var(--text-primary);
-  font-weight: bold;
+  background-color: #252531;
 }
 
 /* links */
@@ -197,7 +214,7 @@ p {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 0.75rem;
 
   max-width: 90vw;
@@ -207,71 +224,89 @@ p {
   width: 400px;
   min-height: 100px;
   max-width: 80vw;
-  padding: 0.65rem 1rem;
+  padding: 1.15rem;
 
   position: relative;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  gap: 0.3rem;
 
   align-items: start;
   text-decoration: none;
   text-align: start;
 
   background: var(--background-secondary);
-  border-style: solid;
-  border-color: var(--border-primary);
-  border-width: 1px;
-  border-radius: 1rem;
+  border: 1px solid var(--border-primary);
+  border-radius: 1.15rem;
 
-  transition: all 0.2s ease-in-out;
+  transition:
+    transform 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 }
 
 .project-card:hover {
-  scale: 1.01;
-  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  border-color: var(--border-active);
+  background-color: #20202a;
 }
 
 .project-title {
   color: var(--text-primary);
   font-size: 1.2rem;
-  margin: 0;
+  margin: 0 0 0.5rem;
+  max-width: calc(100% - 2rem);
 }
 
 .project-description {
   flex: 1;
 
   color: var(--text-inactive);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
 
-  max-width: 95%;
+  max-width: 100%;
   width: 100%;
-  margin: 0;
+  margin: 0 0 1.25rem;
 }
 
 .project-bottom-container {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   flex-direction: row;
-  gap: 0.8rem;
+  gap: 1rem;
+  width: 100%;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border-primary);
 }
 
 .project-lang,
 .project-stars,
 .project-forks {
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
   font-weight: 700;
 }
 
 .project-lang {
-  color: #bc86ca;
+  color: var(--text-inactive);
+}
+
+.project-lang-dot {
+  width: 6px;
+  height: 6px;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--accent-color);
 }
 
 .project-stars {
-  color: #efdf35;
+  color: #d8bc58;
 }
 
 .project-forks {
-  color: var(--text-primary);
+  color: var(--text-inactive);
 }
 
 .project-faicon {
@@ -280,11 +315,16 @@ p {
 
 .project-icon {
   position: absolute;
-  top: 0.7rem;
-  right: 0.7rem;
+  top: 1.15rem;
+  right: 1.15rem;
 
-  color: var(--accent-color);
+  color: var(--text-inactive);
   pointer-events: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.project-card:hover .project-icon {
+  color: var(--accent-color);
 }
 
 /* discord card */
@@ -442,5 +482,21 @@ p {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    gap: 0.75rem;
+    padding: 0.55rem 0.6rem 0.55rem 0.75rem;
+  }
+
+  .navbar-brand {
+    font-size: 0.9rem;
+  }
+
+  .navbar-link {
+    padding: 0.4rem 0.45rem;
+    font-size: 0.75rem;
   }
 }

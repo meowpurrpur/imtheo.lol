@@ -9,16 +9,26 @@ export default function ProjectCard({
   forks,
 }) {
   return (
-    <a className="project-card" href={href} target="_blank">
+    <a
+      className="project-card"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
       <span className="project-icon">
         <FaArrowUpRightFromSquare size={15} />
       </span>
 
       <h3 className="project-title">{title}</h3>
-      <p className="project-description">{description}</p>
+      <p className="project-description">
+        {description || "An open-source project by Theo."}
+      </p>
 
       <div className="project-bottom-container">
-        <span className="project-lang">{primaryLanguage}</span>
+        <span className="project-lang">
+          <span className="project-lang-dot" aria-hidden="true" />
+          {primaryLanguage || "Various"}
+        </span>
 
         <div className="project-stars">
           <FaStar className="project-faicon" size={12} />
