@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
 import ProjectCard from "../components/ProjectCard";
 import useTitle from "../hooks/Title";
-import Footer from "../components/Footer";
 import { FaCircleNotch, FaDiscord, FaGlobe } from "react-icons/fa6";
 
 function Projects() {
@@ -40,8 +38,6 @@ function Projects() {
   useTitle("imtheo.lol - projects");
   return (
     <>
-      <Navbar />
-
       <div className="centered">
         <h1>Open source projects</h1>
 
@@ -101,8 +97,6 @@ function Projects() {
           </div>
         </section>
       </div>
-
-      <Footer />
     </>
   );
 }

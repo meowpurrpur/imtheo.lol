@@ -1,15 +1,11 @@
-import Navbar from "../components/Navbar";
 import useTitle from "../hooks/Title";
 import LinkButton from "../components/LinkButton";
-import Footer from "../components/Footer";
 
 function About() {
   useTitle("imtheo.lol - about");
 
   return (
     <>
-      <Navbar />
-
       <div className="centered">
         <h1 style={{ marginBottom: 0 }}>About me</h1>
         <p>
@@ -120,8 +116,6 @@ function About() {
           />
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

@@ -6,18 +6,14 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import LinkButton from "../components/LinkButton";
-import Navbar from "../components/Navbar";
 import useTitle from "../hooks/Title";
 import DiscordWidget from "../components/DiscordInfo";
-import Footer from "../components/Footer";
 
 function Home() {
   useTitle("imtheo.lol");
 
   return (
     <>
-      <Navbar />
-
       <div className="centered">
         <h1 style={{ fontSize: "2.5rem", marginBottom: "0" }}>
           Hello, i'm <span className="accent-gradient">theo</span>.
@@ -82,8 +78,6 @@ function Home() {
           />
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }
