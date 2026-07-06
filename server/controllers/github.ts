@@ -22,10 +22,11 @@ type RepoOutput = {
 
 const ALLOWED_REPOS = [
   "imtheo.lol",
-  "Joseph",
-  "ConsoleRenderer",
+  "liveserver",
   "IconsInWorld",
   "RobloxUpdateTracker",
+  "ConsoleRenderer",
+  "Joseph",
 ];
 
 export async function getRepositories(): Promise<RepoOutput[]> {
