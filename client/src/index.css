@@ -82,6 +82,15 @@ p {
   font-weight: 900;
 }
 
+.forgejo-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-color: var(--accent-color);
+  mask: url("/Icons/forgejo.svg") center / contain no-repeat;
+  -webkit-mask: url("/Icons/forgejo.svg") center / contain no-repeat;
+}
+
 .accent-gradient {
   background: linear-gradient(
     90deg,

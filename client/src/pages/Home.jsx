@@ -64,6 +64,13 @@ function Home() {
           />
 
           <LinkButton
+            href="https://git.imtheo.lol/theo"
+            upperText="Forgejo"
+            lowerText="theo"
+            icon={<span className="forgejo-icon" />}
+          />
+
+          <LinkButton
             href="https://www.youtube.com/@meowpurrpur"
             upperText="YouTube"
             lowerText="@meowpurrpur"
