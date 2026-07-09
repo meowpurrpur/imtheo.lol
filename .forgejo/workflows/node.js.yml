@@ -1,0 +1,41 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner:
+          - node-20
+          - node-22
+
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check versions
+        run: |
+          node --version
+          npm --version
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install client dependencies
+        run: npm ci
+        working-directory: ./client
+
+      - name: Install server dependencies
+        run: npm ci
+        working-directory: ./server
+
+      - name: Build project
+        run: npm run build
