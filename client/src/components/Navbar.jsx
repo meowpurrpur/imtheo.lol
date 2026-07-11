@@ -5,6 +5,7 @@ export default function Navbar() {
     { name: "home", href: "/", end: true },
     { name: "about", href: "/about" },
     { name: "projects", href: "/projects" },
+    { name: "pgp", href: "/pgp" }
   ];
 
   return (
