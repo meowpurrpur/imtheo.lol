@@ -23,6 +23,7 @@ app.use(
         path.endsWith("/.well-known/matrix/server")
       ) {
         res.setHeader("Content-Type", "application/json");
+        res.setHeader("Access-Control-Allow-Origin", "*");
       }
     },
   }),
