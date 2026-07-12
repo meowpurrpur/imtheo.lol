@@ -14,7 +14,7 @@ const app = express();
 
 const clientDirectory = path.join(__dirname, "../client");
 const buildDirectory = path.join(clientDirectory, "dist");
-app.use(express.static(path.join(__dirname, "static")));
+app.use(express.static(path.join(__dirname, "static"), { dotfiles: "allow" }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,7 +30,10 @@ app.all("/offsets*", (req, res) => {
     : url.pathname;
 
   const targetPath = suffix || "/";
-  res.status(308).set("Location", `https://offsets.imtheo.lol${targetPath}`).end();
+  res
+    .status(308)
+    .set("Location", `https://offsets.imtheo.lol${targetPath}`)
+    .end();
 });
 
 if (isDev) {
