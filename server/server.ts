@@ -14,7 +14,19 @@ const app = express();
 
 const clientDirectory = path.join(__dirname, "../client");
 const buildDirectory = path.join(clientDirectory, "dist");
-app.use(express.static(path.join(__dirname, "static"), { dotfiles: "allow" }));
+app.use(
+  express.static(path.join(__dirname, "static"), {
+    dotfiles: "allow",
+    setHeaders: (res, path) => {
+      if (
+        path.endsWith("/.well-known/matrix/client") ||
+        path.endsWith("/.well-known/matrix/server")
+      ) {
+        res.setHeader("Content-Type", "application/json");
+      }
+    },
+  }),
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
