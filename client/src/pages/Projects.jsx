@@ -11,7 +11,7 @@ function Projects() {
 
     async function loadProjects() {
       try {
-        const response = await fetch("/github/repos");
+        const response = await fetch("/projects/repos");
 
         if (!response.ok) {
           alert("Failed to load projects from API");
@@ -39,7 +39,11 @@ function Projects() {
   return (
     <>
       <div className="centered">
-        <h1>Open source projects</h1>
+        <h2>Open source projects</h2>
+        <p style={{ fontSize: "0.95rem" }}>
+          These projects are also mirrored to my GitHub but I use my self-hosted
+          Forgejo instance mainly.
+        </p>
 
         <div className="project-container">
           {projectState.length === 0 ? (

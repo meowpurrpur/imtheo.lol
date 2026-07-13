@@ -1,44 +1,28 @@
-type GitHubRepo = {
+import { RepoOutput } from "./github";
+
+type ForgejoRepo = {
   id: number;
   name: string;
   description: string | null;
-  stargazers_count: number;
+  stars_count: number;
   forks_count: number;
   html_url: string;
   language: string | null;
   updated_at: string;
 };
 
-export type RepoOutput = {
-  id: number;
-  name: string;
-  description: string | null;
-  stars: number;
-  forks: number;
-  url: string;
-  language: string | null;
-  updatedAt: string;
-};
-
-const ALLOWED_REPOS = [
-  "imtheo.lol",
-  "liveserver",
-  "IconsInWorld",
-  "RobloxUpdateTracker",
-  "ConsoleRenderer",
-  "Joseph",
-];
+const ALLOWED_REPOS = ["imtheo.lol", "liveserver", "RobloxUpdateTracker"];
 
 export async function getRepositories(): Promise<RepoOutput[]> {
-  const username = process.env.GITHUB_USERNAME;
+  const username = process.env.FORGEJO_USERNAME;
   const response = await fetch(
-    `https://api.github.com/users/${username}/repos?sort=updated`,
+    `${process.env.FORGEJO_BASE_URL}/api/v1/users/${username}/repos`,
     {
       headers: {
-        Authorization: process.env.GITHUB_API_TOKEN
-          ? `Bearer ${process.env.GITHUB_API_TOKEN}`
+        Authorization: process.env.FORGEJO_API_TOKEN
+          ? `token ${process.env.FORGEJO_API_TOKEN}`
           : "",
-        Accept: "application/vnd.github+json",
+        Accept: "application/json",
       },
     },
   );
@@ -47,7 +31,7 @@ export async function getRepositories(): Promise<RepoOutput[]> {
     throw new Error(`Failed to fetch repositories: ${response.status}`);
   }
 
-  const repos: GitHubRepo[] = await response.json();
+  const repos: ForgejoRepo[] = await response.json();
   const allowedSet = new Set(ALLOWED_REPOS);
 
   return repos
@@ -56,7 +40,7 @@ export async function getRepositories(): Promise<RepoOutput[]> {
       id: repo.id,
       name: repo.name,
       description: repo.description,
-      stars: repo.stargazers_count,
+      stars: repo.stars_count,
       forks: repo.forks_count,
       url: repo.html_url,
       language: repo.language,

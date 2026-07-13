@@ -7,7 +7,7 @@ import { discordClient } from "./modules/discordClient";
 config({ path: path.join(__dirname, "../.env") });
 const isDev = process.env.NODE_ENV !== "production";
 
-import githubRouter from "./routes/github";
+import projectsRouter from "./routes/projects";
 import discordRouter from "./routes/discord";
 
 const app = express();
@@ -33,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("trust proxy", true);
 
-app.use("/github", githubRouter);
+app.use("/projects", projectsRouter);
 app.use("/discord", discordRouter);
 
 app.all("/offsets*", (req, res) => {
