@@ -5,16 +5,12 @@ export default function ProjectCard({
   title,
   description,
   primaryLanguage,
+  languageColor,
   stars,
   forks,
 }) {
   return (
-    <a
-      className="project-card"
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-    >
+    <a className="project-card" href={href} target="_blank" rel="noreferrer">
       <span className="project-icon">
         <FaArrowUpRightFromSquare size={15} />
       </span>
@@ -26,6 +22,11 @@ export default function ProjectCard({
 
       <div className="project-bottom-container">
         <span className="project-lang">
+          {" "}
+          <div
+            style={{ backgroundColor: languageColor }}
+            className="project-lang-dot"
+          ></div>
           {primaryLanguage || "Various"}
         </span>
 

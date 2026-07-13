@@ -1,3 +1,5 @@
+import { getLanguageColor } from "../modules/languageColors";
+
 type GitHubRepo = {
   id: number;
   name: string;
@@ -17,6 +19,7 @@ export type RepoOutput = {
   forks: number;
   url: string;
   language: string | null;
+  languageColor: string;
   updatedAt: string;
 };
 
@@ -60,6 +63,7 @@ export async function getRepositories(): Promise<RepoOutput[]> {
       forks: repo.forks_count,
       url: repo.html_url,
       language: repo.language,
+      languageColor: getLanguageColor(repo.language || ""),
       updatedAt: repo.updated_at,
     }))
     .sort((a, b) => {

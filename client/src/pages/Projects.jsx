@@ -58,6 +58,7 @@ function Projects() {
                 title={project.name}
                 description={project.description}
                 primaryLanguage={project.language}
+                languageColor={project.languageColor}
                 stars={project.stars}
                 forks={project.forks}
               />

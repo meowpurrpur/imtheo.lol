@@ -317,6 +317,16 @@ p {
 
 .project-lang {
   color: var(--text-inactive);
+  display: flex;
+  align-items: center;
+}
+
+.project-lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin-right: 0.4rem;
+  transform: translateY(1px);
 }
 
 .project-stars {
