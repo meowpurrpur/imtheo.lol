@@ -5,6 +5,8 @@ import {
   FaTiktok,
   FaYoutube,
 } from "react-icons/fa";
+import { TbBrandMatrix } from "react-icons/tb";
+import { SiForgejo } from "react-icons/si";
 import LinkButton from "../components/LinkButton";
 import useTitle from "../hooks/Title";
 import DiscordWidget from "../components/DiscordInfo";
@@ -52,6 +54,13 @@ function Home() {
             lowerText="@theolol"
             icon={<FaTelegram size={20} />}
           />
+
+          <LinkButton
+            href="https://matrix.to/#/@theo:imtheo.lol"
+            upperText="Matrix"
+            lowerText="@theo:imtheo.lol"
+            icon={<TbBrandMatrix size={20} />}
+          />
         </div>
 
         <h2>Other accounts</h2>
@@ -67,7 +76,7 @@ function Home() {
             href="https://git.imtheo.lol/theo"
             upperText="Forgejo"
             lowerText="theo"
-            icon={<span className="forgejo-icon" />}
+            icon={<SiForgejo size={20} />}
           />
 
           <LinkButton
