@@ -1,4 +1,5 @@
 import { getLanguageColor } from "../modules/languageColors";
+import { RepoOutput } from "./repos";
 
 type GitHubRepo = {
   id: number;
@@ -10,27 +11,6 @@ type GitHubRepo = {
   language: string | null;
   updated_at: string;
 };
-
-export type RepoOutput = {
-  id: number;
-  name: string;
-  description: string | null;
-  stars: number;
-  forks: number;
-  url: string;
-  language: string | null;
-  languageColor: string;
-  updatedAt: string;
-};
-
-const ALLOWED_REPOS = [
-  "imtheo.lol",
-  "liveserver",
-  "IconsInWorld",
-  "RobloxUpdateTracker",
-  "ConsoleRenderer",
-  "Joseph",
-];
 
 export async function getRepositories(): Promise<RepoOutput[]> {
   const username = process.env.GITHUB_USERNAME;
@@ -51,22 +31,16 @@ export async function getRepositories(): Promise<RepoOutput[]> {
   }
 
   const repos: GitHubRepo[] = await response.json();
-  const allowedSet = new Set(ALLOWED_REPOS);
-
-  return repos
-    .filter((repo) => allowedSet.has(repo.name))
-    .map((repo) => ({
-      id: repo.id,
-      name: repo.name,
-      description: repo.description,
-      stars: repo.stargazers_count,
-      forks: repo.forks_count,
-      url: repo.html_url,
-      language: repo.language,
-      languageColor: getLanguageColor(repo.language || ""),
-      updatedAt: repo.updated_at,
-    }))
-    .sort((a, b) => {
-      return ALLOWED_REPOS.indexOf(a.name) - ALLOWED_REPOS.indexOf(b.name);
-    });
+  return repos.map((repo) => ({
+    id: repo.id,
+    name: repo.name,
+    description: repo.description,
+    stars: repo.stargazers_count,
+    forks: repo.forks_count,
+    url: repo.html_url,
+    language: repo.language,
+    languageColor: getLanguageColor(repo.language || ""),
+    updatedAt: repo.updated_at,
+    source: "github",
+  }));
 }
