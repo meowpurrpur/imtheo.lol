@@ -4,7 +4,7 @@ import { config } from "dotenv";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import { discordClient } from "./modules/discordClient";
 
-config({ path: path.join(__dirname, "../.env") });
+config({ path: path.join(__dirname, "../../.env") });
 const isDev = process.env.NODE_ENV !== "production";
 
 import projectsRouter from "./routes/projects";
