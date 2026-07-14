@@ -15,7 +15,7 @@ const app = express();
 const clientDirectory = path.join(__dirname, "../client");
 const buildDirectory = path.join(clientDirectory, "dist");
 app.use(
-  express.static(path.join(__dirname, "static"), {
+  express.static(path.join(__dirname, "../static"), {
     dotfiles: "allow",
     setHeaders: (res, path) => {
       if (
