@@ -41,8 +41,8 @@ function Projects() {
       <div className="centered">
         <h2>Open source projects</h2>
         <p style={{ fontSize: "0.95rem" }}>
-          These projects are also mirrored to my GitHub but I use my self-hosted
-          Forgejo instance mainly.
+          Most of my projects are also mirrored to my GitHub, but I use my
+          self-hosted Forgejo instance mainly.
         </p>
 
         <div className="project-container">

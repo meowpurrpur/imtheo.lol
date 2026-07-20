@@ -1,4 +1,6 @@
 import { FaKey, FaLink } from "react-icons/fa";
+import { SiUbuntu } from "react-icons/si";
+
 import LinkButton from "../components/LinkButton";
 import useTitle from "../hooks/Title";
 
@@ -35,7 +37,7 @@ function PGP() {
           <LinkButton
             href="https://keyserver.ubuntu.com/pks/lookup?search=49EA+9587+0B2B+3953+9E3B+862A+EE29+A0F9+F9D9+9E34&fingerprint=on&op=index"
             lowerText="Ubuntu Keyserver"
-            icon={<FaLink size={20} />}
+            icon={<SiUbuntu size={20} />}
           />
 
           <LinkButton

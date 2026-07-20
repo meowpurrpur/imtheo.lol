@@ -1,5 +1,20 @@
 import useTitle from "../hooks/Title";
 import LinkButton from "../components/LinkButton";
+import {
+  SiCplusplus,
+  SiElectron,
+  SiExpress,
+  SiGo,
+  SiJavascript,
+  SiLuau,
+  SiPython,
+  SiReact,
+  SiRust,
+  SiSharp,
+  SiTailwindcss,
+  SiTauri,
+  SiTypescript,
+} from "react-icons/si";
 
 function About() {
   useTitle("imtheo.lol - about");
@@ -9,21 +24,21 @@ function About() {
       <div className="centered">
         <h1 style={{ marginBottom: 0 }}>About me</h1>
         <p>
-          As you probably know, my name is Theo, though most people online know
-          me as <span className="accent-gradient">@meowpurrpur</span>. I've been
-          into programming, computers, and pretty much anything tech-related for
-          as long as I can remember. I also enjoy playing games and listening to
-          music!
+          As you probably know, my name is Theo, though I go by the username{" "}
+          <span className="accent-gradient">@meowpurrpur</span>. I've been
+          interested in programming, computers, and pretty much anything
+          tech-related for as long as I can remember. I also enjoy playing games
+          and listening to music!
         </p>
 
         <p>
-          I have experience with a wide range of programming languages and
-          frameworks. For backend systems and desktop applications, I mainly
-          work with C++ and occasionally Rust. On the frontend side, I mostly
-          use React with Vite. I also have extensive experience working with
-          PostgreSQL databases. Beyond software development, I've spent time
-          working with networking and infrastructure, including configuring and
-          securing networks, as well as deploying and managing servers.
+          I have experience with lots of programming languages and frameworks.
+          For desktop applications, I mainly work with C++ and occasionally Rust
+          or Go. On the frontend side, I mostly use React with Vite. I also have
+          extensive experience working with PostgreSQL databases. Beyond
+          software, I've spent time working with networking and infrastructure,
+          including configuring and securing networks, as well as deploying and
+          managing servers.
         </p>
 
         <h2 style={{ margin: 0 }}>Tech</h2>
@@ -37,49 +52,49 @@ function About() {
           <LinkButton
             href="https://isocpp.org"
             lowerText="C++"
-            icon={<img src="Icons/CPP.png" width={20}></img>}
+            icon={<SiCplusplus size={20} />}
           />
 
           <LinkButton
             href="https://rust-lang.org"
             lowerText="Rust"
-            icon={<img src="Icons/Rust.svg" width={20}></img>}
+            icon={<SiRust size={20} />}
           />
 
           <LinkButton
             href="https://dotnet.microsoft.com/en-us/languages/csharp"
             lowerText="C#"
-            icon={<img src="Icons/CSharp.png" width={20}></img>}
+            icon={<SiSharp size={20} />}
           />
 
           <LinkButton
             href="https://go.dev"
             lowerText="Go"
-            icon={<img src="Icons/Go.png" width={20}></img>}
+            icon={<SiGo size={20} />}
           />
 
           <LinkButton
             href="https://www.python.org"
             lowerText="Python"
-            icon={<img src="Icons/Python.png" width={20}></img>}
+            icon={<SiPython size={20} />}
           />
 
           <LinkButton
             href="https://luau.org"
             lowerText="LuaU"
-            icon={<img src="Icons/LuaU.png" width={20}></img>}
+            icon={<SiLuau size={20} />}
           />
 
           <LinkButton
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
             lowerText="JavaScript"
-            icon={<img src="Icons/JS.png" width={20}></img>}
+            icon={<SiJavascript size={20} />}
           />
 
           <LinkButton
             href="https://www.typescriptlang.org"
             lowerText="TypeScript"
-            icon={<img src="Icons/TS.png" width={20}></img>}
+            icon={<SiTypescript size={20} />}
           />
         </div>
 
@@ -88,31 +103,31 @@ function About() {
           <LinkButton
             href="https://react.dev"
             lowerText="React"
-            icon={<img src="Icons/React.png" width={20}></img>}
+            icon={<SiReact size={20} />}
           />
 
           <LinkButton
             href="https://tailwindcss.com"
             lowerText="Tailwind"
-            icon={<img src="Icons/Tailwind.png" width={20}></img>}
+            icon={<SiTailwindcss size={20} />}
           />
 
           <LinkButton
             href="https://www.electronjs.org"
             lowerText="Electron"
-            icon={<img src="Icons/Electron.png" width={20}></img>}
+            icon={<SiElectron size={20} />}
           />
 
           <LinkButton
             href="https://v2.tauri.app"
             lowerText="Tauri"
-            icon={<img src="Icons/Tauri.png" width={20}></img>}
+            icon={<SiTauri size={20} />}
           />
 
           <LinkButton
             href="https://expressjs.com"
             lowerText="Express"
-            icon={<img src="Icons/Express.png" width={20}></img>}
+            icon={<SiExpress size={20} />}
           />
         </div>
       </div>

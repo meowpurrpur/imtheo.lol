@@ -1,12 +1,11 @@
+import { FaEnvelope } from "react-icons/fa";
 import {
-  FaEnvelope,
-  FaGithub,
-  FaTelegram,
-  FaTiktok,
-  FaYoutube,
-} from "react-icons/fa";
-import { TbBrandMatrix } from "react-icons/tb";
-import { SiForgejo } from "react-icons/si";
+  SiCodeberg,
+  SiForgejo,
+  SiGithub,
+  SiMatrix,
+  SiTelegram,
+} from "react-icons/si";
 import LinkButton from "../components/LinkButton";
 import useTitle from "../hooks/Title";
 import DiscordWidget from "../components/DiscordInfo";
@@ -41,37 +40,23 @@ function Home() {
             icon={<FaEnvelope size={20} />}
           />
 
-          {/*<LinkButton
-            href="https://discord.com/users/1081551899397992509"
-            upperText="Discord"
-            lowerText="@meowpurrpur"
-            icon={<FaDiscord size={20} />}
-          />*/}
-
           <LinkButton
             href="https://t.me/theolol"
             upperText="Telegram"
             lowerText="@theolol"
-            icon={<FaTelegram size={20} />}
+            icon={<SiTelegram size={20} />}
           />
 
           <LinkButton
             href="https://matrix.to/#/@theo:imtheo.lol"
             upperText="Matrix"
             lowerText="@theo:imtheo.lol"
-            icon={<TbBrandMatrix size={20} />}
+            icon={<SiMatrix size={20} />}
           />
         </div>
 
-        <h2>Other accounts</h2>
+        <h2>Find my code</h2>
         <div className="link-container">
-          <LinkButton
-            href="https://github.com/meowpurrpur"
-            upperText="Github"
-            lowerText="meowpurrpur"
-            icon={<FaGithub size={20} />}
-          />
-
           <LinkButton
             href="https://git.imtheo.lol/theo"
             upperText="Forgejo"
@@ -80,17 +65,17 @@ function Home() {
           />
 
           <LinkButton
-            href="https://www.youtube.com/@meowpurrpur"
-            upperText="YouTube"
-            lowerText="@meowpurrpur"
-            icon={<FaYoutube size={20} />}
+            href="https://github.com/meowpurrpur"
+            upperText="Github"
+            lowerText="meowpurrpur"
+            icon={<SiGithub size={20} />}
           />
 
           <LinkButton
-            href="https://www.tiktok.com/@meowpurrpur"
-            upperText="TikTok"
-            lowerText="@meowpurrpur"
-            icon={<FaTiktok size={20} />}
+            href="https://codeberg.org/meowpurrpur"
+            upperText="Codeberg"
+            lowerText="meowpurrpur"
+            icon={<SiCodeberg size={20} />}
           />
         </div>
       </div>

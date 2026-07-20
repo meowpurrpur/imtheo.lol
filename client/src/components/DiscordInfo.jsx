@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaDiscord } from "react-icons/fa";
+import { SiDiscord } from "react-icons/si";
 
 export default function DiscordWidget({ userId }) {
   const [data, setData] = useState(null);
@@ -43,7 +43,7 @@ export default function DiscordWidget({ userId }) {
             />
           )}
 
-          <FaDiscord className="discord-card-icon" size={24} />
+          <SiDiscord className="discord-card-icon" size={20} />
 
           <div className="discord-card-avatar-wrapper">
             <img
@@ -75,7 +75,7 @@ export default function DiscordWidget({ userId }) {
             style={{ backgroundColor: "var(--text-primary)" }}
           />
 
-          <FaDiscord className="discord-card-icon" size={24} />
+          <SiDiscord className="discord-card-icon" size={20} />
 
           <div className="discord-card-avatar-wrapper">
             <span className={`discord-status discord-status-offline`} />
