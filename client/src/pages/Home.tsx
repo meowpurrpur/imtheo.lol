@@ -10,7 +10,7 @@ import LinkButton from "../components/LinkButton";
 import useTitle from "../hooks/Title";
 import DiscordWidget from "../components/DiscordInfo";
 
-function Home() {
+export default function Home() {
   useTitle("imtheo.lol");
 
   return (
@@ -82,5 +82,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

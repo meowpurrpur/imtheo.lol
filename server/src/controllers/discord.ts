@@ -3,10 +3,10 @@ import { discordClient } from "../modules/discordClient";
 type DiscordInfo = {
   name: string;
   username: string;
-  avatar: null | string;
-  avatar_decoration: null | string;
-  banner: null | undefined | string;
-  banner_color: number | null | undefined;
+  avatar?: string;
+  avatar_decoration?: string;
+  banner?: string;
+  banner_color?: number;
   status: string;
 };
 
@@ -47,15 +47,15 @@ export async function getUserInfo(userId: string): Promise<DiscordInfo | null> {
 
   const banner = user.banner
     ? `https://cdn.discordapp.com/banners/${user.id}/${user.banner}.${getAssetExtention(user.banner)}?size=256`
-    : null;
+    : "";
 
   const avatar = user.avatar
     ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${getAssetExtention(user.avatar)}?size=256`
-    : null;
+    : "";
 
   const avatarDecoration = user.avatar_decoration_data
     ? `https://cdn.discordapp.com/media/v1/collectibles-shop/${user.avatar_decoration_data.sku_id}/animated`
-    : null;
+    : "";
 
   const data: DiscordInfo = {
     name: member.user.globalName || member.user.username,

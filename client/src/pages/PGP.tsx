@@ -4,7 +4,7 @@ import { SiUbuntu } from "react-icons/si";
 import LinkButton from "../components/LinkButton";
 import useTitle from "../hooks/Title";
 
-function PGP() {
+export default function PGP() {
   useTitle("imtheo.lol - PGP");
 
   return (
@@ -50,5 +50,3 @@ function PGP() {
     </>
   );
 }
-
-export default PGP;

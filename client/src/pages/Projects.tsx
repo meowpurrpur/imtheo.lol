@@ -3,8 +3,21 @@ import ProjectCard from "../components/ProjectCard";
 import useTitle from "../hooks/Title";
 import { FaCircleNotch, FaDiscord, FaGlobe } from "react-icons/fa6";
 
-function Projects() {
-  const [projectState, setProjectState] = useState([]);
+export type RepoOutput = {
+  id: number;
+  name: string;
+  description: string | null;
+  stars: number;
+  forks: number;
+  url: string;
+  language: string | null;
+  languageColor: string;
+  updatedAt: string;
+  source: "github" | "forgejo";
+};
+
+export default function Projects() {
+  const [projectState, setProjectState] = useState<RepoOutput[]>([]);
 
   useEffect(() => {
     let isMounted = true;
@@ -12,14 +25,12 @@ function Projects() {
     async function loadProjects() {
       try {
         const response = await fetch("/projects/repos");
-
         if (!response.ok) {
           alert("Failed to load projects from API");
           return;
         }
 
         const data = await response.json();
-
         if (isMounted) {
           setProjectState(data);
         }
@@ -29,7 +40,6 @@ function Projects() {
     }
 
     loadProjects();
-
     return () => {
       isMounted = false;
     };
@@ -56,8 +66,8 @@ function Projects() {
                 key={project.id}
                 href={project.url}
                 title={project.name}
-                description={project.description}
-                primaryLanguage={project.language}
+                description={project.description ?? "No description"}
+                primaryLanguage={project.language ?? "Unknown"}
                 languageColor={project.languageColor}
                 stars={project.stars}
                 forks={project.forks}
@@ -105,5 +115,3 @@ function Projects() {
     </>
   );
 }
-
-export default Projects;

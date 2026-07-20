@@ -1,8 +1,22 @@
 import { useEffect, useState } from "react";
 import { SiDiscord } from "react-icons/si";
 
-export default function DiscordWidget({ userId }) {
-  const [data, setData] = useState(null);
+type DiscordWidgetProps = {
+  userId: string;
+};
+
+type DiscordInfo = {
+  name: string;
+  username: string;
+  avatar?: string;
+  avatar_decoration?: string;
+  banner?: string;
+  banner_color?: number;
+  status: string;
+};
+
+export default function DiscordWidget({ userId }: DiscordWidgetProps) {
+  const [data, setData] = useState<DiscordInfo | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -39,7 +53,7 @@ export default function DiscordWidget({ userId }) {
           ) : (
             <div
               className="discord-card-banner"
-              style={{ backgroundColor: data.banner_color }}
+              style={{ backgroundColor: `#${data.banner_color?.toString(16)}` }}
             />
           )}
 

@@ -1,5 +1,15 @@
 import { FaArrowUpRightFromSquare, FaCodeFork, FaStar } from "react-icons/fa6";
 
+type ProjectCardProps = {
+  href: string;
+  title: string;
+  description?: string;
+  primaryLanguage?: string;
+  languageColor?: string;
+  stars?: number;
+  forks?: number;
+};
+
 export default function ProjectCard({
   href,
   title,
@@ -8,7 +18,7 @@ export default function ProjectCard({
   languageColor,
   stars,
   forks,
-}) {
+}: ProjectCardProps) {
   return (
     <a className="project-card" href={href} target="_blank" rel="noreferrer">
       <span className="project-icon">
@@ -32,12 +42,12 @@ export default function ProjectCard({
 
         <div className="project-stars">
           <FaStar className="project-faicon" size={12} />
-          <span>{stars}</span>
+          <span>{stars || 0}</span>
         </div>
 
         <div className="project-forks">
           <FaCodeFork className="project-faicon" size={12} />
-          <span>{forks}</span>
+          <span>{forks || 0}</span>
         </div>
       </div>
     </a>

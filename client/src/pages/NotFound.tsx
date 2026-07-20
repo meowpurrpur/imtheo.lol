@@ -2,7 +2,7 @@ import LinkButton from "../components/LinkButton";
 import { FaHome } from "react-icons/fa";
 import useTitle from "../hooks/Title";
 
-function NotFound() {
+export default function NotFound() {
   useTitle("imtheo.lol - 404");
 
   return (
@@ -25,5 +25,3 @@ function NotFound() {
     </>
   );
 }
-
-export default NotFound;

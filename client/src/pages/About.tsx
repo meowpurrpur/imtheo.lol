@@ -16,7 +16,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
-function About() {
+export default function About() {
   useTitle("imtheo.lol - about");
 
   return (
@@ -134,5 +134,3 @@ function About() {
     </>
   );
 }
-
-export default About;
