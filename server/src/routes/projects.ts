@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { getRepositories } from "../controllers/repos";
 
-const router = Router();
+const router: Router = Router();
 
 router.get("/repos", async (req, res) => {
   try {

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { getUserInfo } from "../controllers/discord";
 
-const router = Router();
+const router: Router = Router();
 
 router.get("/:id/info", async (req, res) => {
   const { id } = req.params;
