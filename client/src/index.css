@@ -447,6 +447,7 @@ p {
 .discord-card-banner {
   width: 100%;
   height: 80px;
+  object-fit: cover;
 }
 
 .discord-card-avatar-wrapper {
@@ -554,6 +555,26 @@ p {
 
 .spinner {
   animation: spin 1s linear infinite;
+}
+
+.fingerprint-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fingerprint-container code {
+  line-height: 1;
+}
+
+.fingerprint-container button {
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: none;
 }
 
 @keyframes spin {
