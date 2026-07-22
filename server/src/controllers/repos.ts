@@ -18,9 +18,9 @@ const allowedRepos: Record<string, ("github" | "forgejo")[]> = {
   "imtheo.lol": ["forgejo", "github"],
   liveserver: ["forgejo", "github"],
   RobloxUpdateTracker: ["forgejo", "github"],
+  ScamDetector: ["forgejo", "github"],
   Joseph: ["github"],
   ConsoleRenderer: ["github"],
-  IconsInWorld: ["github"],
 };
 
 async function fetchRepositories(): Promise<RepoOutput[]> {
