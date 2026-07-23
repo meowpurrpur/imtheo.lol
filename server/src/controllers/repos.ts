@@ -22,6 +22,7 @@ const allowedRepos: Record<string, ("github" | "forgejo")[]> = {
   Joseph: ["github"],
   ConsoleRenderer: ["github"],
 };
+const repoOrder = Object.keys(allowedRepos);
 
 async function fetchRepositories(): Promise<RepoOutput[]> {
   switch (process.env.REPO_SOURCE) {
@@ -69,7 +70,9 @@ function mergeRepositories(repos: RepoOutput[]): RepoOutput[] {
     }
   }
 
-  return [...merged.values()];
+  return [...merged.values()].sort(
+    (a, b) => repoOrder.indexOf(a.name) - repoOrder.indexOf(b.name),
+  );
 }
 
 export async function getRepositories(): Promise<RepoOutput[]> {
