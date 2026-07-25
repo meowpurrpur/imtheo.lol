@@ -35,7 +35,7 @@ export async function getUserInfo(userId: string): Promise<DiscordInfo | null> {
 
   const user = await response.json();
   const guild = await discordClient.guilds.fetch(
-    process.env.DISCORD_GUILD_ID ?? "",
+    process.env.DISCORD_GUILD_ID!,
   );
 
   var member;

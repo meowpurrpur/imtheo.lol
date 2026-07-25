@@ -3,7 +3,7 @@ import ProjectCard from "../components/ProjectCard";
 import useTitle from "../hooks/Title";
 import { FaCircleNotch, FaDiscord, FaGlobe } from "react-icons/fa6";
 
-export type RepoOutput = {
+type RepoOutput = {
   id: number;
   name: string;
   description: string | null;

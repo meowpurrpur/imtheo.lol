@@ -1,6 +1,7 @@
 import { getRepositories as getRepositoriesGithub } from "./github";
 import { getRepositories as getRepositoriesForgejo } from "./forgejo";
 
+type RepoSource = "github" | "forgejo";
 export type RepoOutput = {
   id: number;
   name: string;
@@ -14,14 +15,15 @@ export type RepoOutput = {
   source: "github" | "forgejo";
 };
 
-const allowedRepos: Record<string, ("github" | "forgejo")[]> = {
+const allowedRepos: Record<string, readonly RepoSource[]> = {
   "imtheo.lol": ["forgejo", "github"],
   liveserver: ["forgejo", "github"],
   RobloxUpdateTracker: ["forgejo", "github"],
   ScamDetector: ["forgejo", "github"],
   Joseph: ["github"],
   ConsoleRenderer: ["github"],
-};
+} as const;
+
 const repoOrder = Object.keys(allowedRepos);
 
 async function fetchRepositories(): Promise<RepoOutput[]> {
@@ -77,6 +79,5 @@ function mergeRepositories(repos: RepoOutput[]): RepoOutput[] {
 
 export async function getRepositories(): Promise<RepoOutput[]> {
   const repositories = await fetchRepositories();
-
   return mergeRepositories(repositories.filter(isAllowedRepo));
 }

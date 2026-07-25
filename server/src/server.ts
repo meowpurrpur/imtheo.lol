@@ -4,11 +4,12 @@ import { config } from "dotenv";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import { discordClient } from "./modules/discordClient";
 
-config({ path: path.join(__dirname, "../../.env") });
+config({ path: path.join(__dirname, "../../.env"), quiet: true });
 const isDev = process.env.NODE_ENV !== "production";
 
 import projectsRouter from "./routes/projects";
 import discordRouter from "./routes/discord";
+import consola from "consola";
 
 const app = express();
 
@@ -65,14 +66,19 @@ if (isDev) {
   });
 }
 
-app.listen(process.env.EXPRESS_PORT, async () => {
-  await discordClient.login(process.env.DISCORD_BOT_TOKEN);
+consola.start(
+  `Starting webserver on port ${process.env.EXPRESS_PORT}, env: ${process.env.NODE_ENV}...`,
+);
 
-  console.log(
-    `[imtheo.lol] server started on port ${process.env.EXPRESS_PORT}`,
+app.listen(process.env.EXPRESS_PORT, async () => {
+  consola.success(
+    `Webserver started on http://localhost:${process.env.EXPRESS_PORT}`,
   );
 
-  console.log(
-    `[imtheo.lol] bot running, user: ${discordClient.user?.username}`,
+  consola.start(`Logging into Discord client...`);
+  await discordClient.login(process.env.DISCORD_BOT_TOKEN);
+
+  consola.success(
+    `Discord client ready, user: ${discordClient.user?.username}`,
   );
 });

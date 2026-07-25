@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { getUserInfo } from "../controllers/discord";
+import consola from "consola";
 
 const router: Router = Router();
 
@@ -13,7 +14,7 @@ router.get("/:id/info", async (req, res) => {
 
     return res.send(userInfo);
   } catch (error) {
-    console.error(error);
+    consola.error("Error while loading Discord info:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 });
