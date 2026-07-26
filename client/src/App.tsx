@@ -33,6 +33,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <img src="/meow.png" className="cat" />
     </>
   );
 }
