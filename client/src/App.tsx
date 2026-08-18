@@ -8,9 +8,6 @@ import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import PGP from "./pages/PGP";
 
-import Terms from "./pages/ScamDetector/TOS";
-import Privacy from "./pages/ScamDetector/PrivacyPolicy";
-
 export default function App() {
   const location = useLocation();
 
@@ -24,9 +21,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/pgp" element={<PGP />} />
-
-          <Route path="/scam-detector/terms" element={<Terms />} />
-          <Route path="/scam-detector/privacy" element={<Privacy />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
