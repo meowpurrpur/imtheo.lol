@@ -1,4 +1,4 @@
-# imtheo.lol
+# imtheo.lol (gay version)
 
 My personal portfolio website.
 
