@@ -38,3 +38,5 @@ Build the frontend and start the server:
 ```bash
 pnpm start
 ```
+
+###### Kai295 was here :3
